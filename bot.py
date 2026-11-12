@@ -111,12 +111,17 @@ def post_to_slack(payload: Dict):
             f"Error Slack: {e.response.data if hasattr(e, 'response') else e}"
         )
 
+def cargar_preguntas():
+    raise Exception("Sorry, no hay implementación")
+
 
 def main():
     if not BOT_TOKEN or not CHANNEL_ID:
         raise RuntimeError(
             "Faltan variables de entorno: SLACK_BOT_TOKEN y/o SLACK_CHANNEL_ID"
         )
+
+    cargar_preguntas()
 
     problems = load_problems()
     state = load_state(len(problems))
